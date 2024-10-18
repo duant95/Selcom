@@ -22,7 +22,6 @@ function Navbar() {
     }
   };
 
-  // Cambia el fondo dinámicamente según la ruta actual
   useEffect(() => {
     if (location.pathname === '/') {
       window.addEventListener('scroll', handleScroll); // Solo detecta scroll en la página de inicio
@@ -36,68 +35,42 @@ function Navbar() {
   const handleLinkClick = () => {
     setIsOpen(false); // Cierra el menú al seleccionar una opción
   };
-  
+
   return (
     <nav className={`fixed w-full z-50 ${navBackground} text-white ${shadow} transition-all duration-300`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/">
-          <img src="/images/Selcom Logo.jpg" alt="Logo de Selcom" className="h-10" /> {/* Ajusta la altura según sea necesario */}
+          <img src="/images/Selcom Logo.jpg" alt="Logo de Selcom" className="h-10" />
         </Link>
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="focus:outline-none">
-            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            {isOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
           </button>
         </div>
 
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-8 justify-center items-center mx-auto text-lg">
-          <li>
-            <Link to="/about" className="hover:bg-green-500 px-4 py-2 rounded-full transition-all duration-300 text-shadow">
-              Quiénes Somos
-            </Link>
-          </li>
-          <li>
-            <Link to="/services" className="hover:bg-green-500 px-4 py-2 rounded-full transition-all duration-300 text-shadow">
-              Servicios
-            </Link>
-          </li>
-          <li>
-            <Link to="/portfolio" className="hover:bg-green-500 px-4 py-2 rounded-full transition-all duration-300 text-shadow">
-              Proyectos
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="hover:bg-green-500 px-4 py-2 rounded-full transition-all duration-300 text-shadow">
-              Contacto
-            </Link>
-          </li>
+          {['about', 'services', 'portfolio', 'contact'].map((text) => (
+            <li key={text}>
+              <Link to={`/${text}`} className="hover:bg-green-500 px-4 py-2 rounded-full transition-all duration-300 text-shadow">
+                {text === 'about' ? 'Quiénes Somos' : text.charAt(0).toUpperCase() + text.slice(1)}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile Links */}
-        <ul className={`absolute top-16 left-0 w-full bg-blue-800 text-center space-y-4 py-6 md:hidden transform ${isOpen ? 'translate-y-0' : '-translate-y-full'} transition-transform duration-300 ease-in-out`}>
-          <li>
-            <Link to="/about" onClick={handleLinkClick} className="block hover:bg-green-500 py-2">
-              Quiénes Somos
-            </Link>
-          </li>
-          <li>
-            <Link to="/services" onClick={handleLinkClick} className="block hover:bg-green-500 py-2">
-              Servicios
-            </Link>
-          </li>
-          <li>
-            <Link to="/portfolio" onClick={handleLinkClick} className="block hover:bg-green-500 py-2">
-              Proyectos
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" onClick={handleLinkClick} className="block hover:bg-green-500 py-2">
-              Contacto
-            </Link>
-          </li>
+        <ul className={`absolute top-16 left-0 w-full bg-green-600 text-center space-y-4 py-6 md:hidden transform ${isOpen ? 'translate-y-0' : '-translate-y-full'} transition-transform duration-300 ease-in-out`}>
+          {['about', 'services', 'portfolio', 'contact'].map((text) => (
+            <li key={text}>
+              <Link to={`/${text}`} onClick={handleLinkClick} className="block hover:bg-green-500 py-2 text-lg">
+                {text === 'about' ? 'Quiénes Somos' : text.charAt(0).toUpperCase() + text.slice(1)}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

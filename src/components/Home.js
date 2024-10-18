@@ -41,10 +41,10 @@ function Home() {
             { title: "¿Por qué importa?", description: "Protegemos tu negocio con tecnología de vanguardia.", icon: "fas fa-shield-alt" },
             { title: "¿Cómo lo consigues?", description: "Contacta con nosotros y transforma tu seguridad.", icon: "fas fa-phone" }
           ].map((item, index) => (
-            <div key={index} className="transition-transform duration-300 hover:scale-105 animate__animated animate__fadeIn animate__delay-1s">
+            <div key={index} className="transition-transform duration-300 hover:scale-105 animate__animated animate__fadeIn">
+              <i className={`${item.icon} text-green-500 text-5xl mb-4`}></i>
               <h3 className="text-3xl font-semibold">{item.title}</h3>
               <p className="text-lg mt-2">{item.description}</p>
-              <i className={`${item.icon} text-green-500 text-4xl mb-2`}></i>
             </div>
           ))}
         </div>
@@ -52,15 +52,15 @@ function Home() {
 
       {/* About Section */}
       <section className="bg-gray-100 py-20 text-center">
-        <h2 className="text-5xl font-bold text-blue-900 fade-in animate__animated animate__fadeIn">¿Quiénes Somos?</h2>
-        <p className="text-lg text-gray-700 mt-6 px-6 max-w-4xl mx-auto fade-in animate__animated animate__fadeIn animate__delay-1s">Con más de 14 años en el mercado, Selcom ofrece soluciones integrales en instalación, desarrollo y mantenimiento de sistemas de señales débiles.</p>
-        <img src="images/christina-wocintechchat-com-c5pRBXFhJgo-unsplash.jpg" alt="About Image" className="w-full h-60 object-cover mt-6 rounded-lg shadow-lg fade-in animate__animated animate__fadeIn animate__delay-2s" />
+        <h2 className="text-5xl font-bold text-blue-900 animate__animated animate__fadeIn">¿Quiénes Somos?</h2>
+        <p className="text-lg text-gray-700 mt-6 px-6 max-w-4xl mx-auto animate__animated animate__fadeIn animate__delay-1s">Con más de 14 años en el mercado, Selcom ofrece soluciones integrales en instalación, desarrollo y mantenimiento de sistemas de señales débiles.</p>
+        <img src="images/christina-wocintechchat-com-c5pRBXFhJgo-unsplash.jpg" alt="About Image" className="w-full h-60 object-cover mt-6 rounded-lg shadow-lg animate__animated animate__fadeIn animate__delay-2s" />
       </section>
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-white text-center">
-        <h2 className="text-5xl font-bold text-blue-900 mb-12 fade-in animate__animated animate__fadeIn">Nuestros Servicios</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 fade-in animate__animated animate__fadeIn animate__delay-1s">
+        <h2 className="text-5xl font-bold text-blue-900 mb-12 animate__animated animate__fadeIn">Nuestros Servicios</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 animate__animated animate__fadeIn animate__delay-1s">
           {[
             { title: "Instalación de Señales", description: "Instalamos sistemas de señales débiles en todo tipo de infraestructuras.", icon: "fas fa-tools" },
             { title: "Desarrollo de Proyectos", description: "Desarrollamos proyectos de SSDD para edificaciones de gran escala.", icon: "fas fa-drafting-compass" },
@@ -77,7 +77,7 @@ function Home() {
 
       {/* Portfolio Section */}
       <section className="py-20 bg-gray-100 text-center">
-        <h2 className="text-5xl font-bold text-blue-900 mb-12 fade-in animate__animated animate__fadeIn">Proyectos Recientes</h2>
+        <h2 className="text-5xl font-bold text-blue-900 mb-12 animate__animated animate__fadeIn">Proyectos Recientes</h2>
         <Carousel showThumbs={false} autoPlay infiniteLoop>
           {[
             { src: "images/Screenshot 2024-09-10 145643.png", title: "Proyecto 1", description: "Instalación de sistemas de seguridad en edificios corporativos." },
@@ -94,7 +94,7 @@ function Home() {
 
       {/* Brands Section */}
       <section className="py-20 bg-white text-center">
-        <h2 className="text-5xl font-bold text-blue-900 mb-12 fade-in animate__animated animate__fadeIn">
+        <h2 className="text-5xl font-bold text-blue-900 mb-12 animate__animated animate__fadeIn">
           Empresas e Instituciones que Confían en Nosotros
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-6">
@@ -109,24 +109,20 @@ function Home() {
             "images/petropar.webp", "images/Hierropar.jpeg", 
             "images/chacomer_logo.png", "images/OIP.jpeg"
           ].map((brand, index) => (
-            <div 
-              key={index} 
-              className="flex items-center justify-center h-28 mx-auto"
-              style={{ height: '150px' }} // Ajuste manual de altura para mejorar el centrado vertical
-            >
+            <div key={index} className="flex items-center justify-center h-28 mx-auto">
               <img 
                 src={brand} 
                 alt={`Marca ${index + 1}`} 
-                className="h-full w-auto max-w-full object-contain mx-auto"
+                className="h-full w-auto max-w-full object-contain mx-auto transition-transform duration-300 hover:scale-105"
               />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Construction Section */}
+      {/* Constructoras Aliadas */}
       <section className="py-20 bg-white text-center">
-        <h2 className="text-5xl font-bold text-blue-900 mb-12 fade-in animate__animated animate__fadeIn">
+        <h2 className="text-5xl font-bold text-blue-900 mb-12 animate__animated animate__fadeIn">
           Constructoras Aliadas
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-6">
@@ -136,24 +132,20 @@ function Home() {
             "images/Jimenez.jpeg", "images/MM SA.jpg", 
             "images/AGB.jpeg", "images/Diaz Martinez.jpg" 
           ].map((brand, index) => (
-            <div 
-              key={index} 
-              className="flex items-center justify-center h-28 mx-auto"
-              style={{ height: '150px' }} // Ajuste manual de altura para mejorar el centrado vertical
-            >
+            <div key={index} className="flex items-center justify-center h-28 mx-auto">
               <img 
                 src={brand} 
                 alt={`Marca ${index + 1}`} 
-                className="h-full w-auto max-w-full object-contain mx-auto"
+                className="h-full w-auto max-w-full object-contain mx-auto transition-transform duration-300 hover:scale-105"
               />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Brands Section */}
+      {/* Nuestras Marcas */}
       <section className="py-20 bg-white text-center">
-        <h2 className="text-5xl font-bold text-blue-900 mb-12 fade-in animate__animated animate__fadeIn">
+        <h2 className="text-5xl font-bold text-blue-900 mb-12 animate__animated animate__fadeIn">
           Nuestras Marcas
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-6">
@@ -167,15 +159,11 @@ function Home() {
             "images/FIRECLASS.webp", "images/Siera.png", 
             "images/exacq.png", "images/speco.jpg" 
           ].map((brand, index) => (
-            <div 
-              key={index} 
-              className="flex items-center justify-center h-28 mx-auto"
-              style={{ height: '150px' }} // Ajuste manual de altura para mejorar el centrado vertical
-            >
+            <div key={index} className="flex items-center justify-center h-28 mx-auto">
               <img 
                 src={brand} 
                 alt={`Marca ${index + 1}`} 
-                className="h-full w-auto max-w-full object-contain mx-auto"
+                className="h-full w-auto max-w-full object-contain mx-auto transition-transform duration-300 hover:scale-105"
               />
             </div>
           ))}
@@ -184,8 +172,8 @@ function Home() {
 
       {/* Stats Section */}
       <section className="py-20 bg-gray-100 text-center">
-        <h2 className="text-5xl font-bold text-blue-900 mb-12 fade-in animate__animated animate__fadeIn">Nuestras Estadísticas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 fade-in animate__animated animate__fadeIn animate__delay-1s">
+        <h2 className="text-5xl font-bold text-blue-900 mb-12 animate__animated animate__fadeIn">Nuestras Estadísticas</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 animate__animated animate__fadeIn animate__delay-1s">
           {[
             { number: "+100", label: "Proyectos Completados", icon: "fas fa-trophy" },
             { number: "+50", label: "Clientes Satisfechos", icon: "fas fa-users" },
@@ -202,9 +190,9 @@ function Home() {
 
       {/* Contact Section */}
       <section className="py-20 bg-white text-center">
-        <h2 className="text-5xl font-bold text-blue-900 mb-12 fade-in animate__animated animate__fadeIn">¡Contáctanos!</h2>
-        <p className="text-lg text-gray-700 mb-6 fade-in animate__animated animate__fadeIn animate__delay-1s">Estamos aquí para ayudarte con tus necesidades de seguridad y comunicaciones.</p>
-        <Link to="/contact" className="bg-green-500 text-white py-4 px-10 rounded-full hover:bg-green-600 transition-all duration-300 fade-in animate__animated animate__fadeIn animate__delay-2s">
+        <h2 className="text-5xl font-bold text-blue-900 mb-12 animate__animated animate__fadeIn">¡Contáctanos!</h2>
+        <p className="text-lg text-gray-700 mb-6 animate__animated animate__fadeIn animate__delay-1s">Estamos aquí para ayudarte con tus necesidades de seguridad y comunicaciones.</p>
+        <Link to="/contact" className="bg-green-500 text-white py-4 px-10 rounded-full hover:bg-green-600 transition-all duration-300 animate__animated animate__fadeIn animate__delay-2s">
           Contacto
         </Link>
       </section>
